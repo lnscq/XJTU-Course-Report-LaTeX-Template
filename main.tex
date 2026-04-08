@@ -1,0 +1,215 @@
+\documentclass[12pt,a4paper]{ctexart}
+
+% ==================== 页面与基础宏包 ====================
+\usepackage[a4paper,margin=2.2cm]{geometry}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{setspace}
+\usepackage{enumitem}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{multirow}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{hyperref}
+\usepackage[most]{tcolorbox}
+\usepackage{abstract}
+
+% ⭐ 关键：支持 svg
+\usepackage{svg}
+\svgsetup{inkscape=inkscape}
+
+% ==================== 颜色定义 ====================
+\definecolor{xjtuRed}{RGB}{165,30,55}
+\definecolor{darkText}{RGB}{45,45,45}
+\definecolor{lightGray}{RGB}{245,245,245}
+\definecolor{midGray}{RGB}{120,120,120}
+\definecolor{lineGray}{RGB}{220,220,220}
+
+% ==================== 超链接 ====================
+\hypersetup{
+    colorlinks=true,
+    linkcolor=xjtuRed,
+    urlcolor=xjtuRed,
+    citecolor=xjtuRed
+}
+
+% ==================== 行距 ====================
+\setstretch{1.35}
+
+% ==================== 页眉页脚 ====================
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\textcolor{midGray}{西安交通大学课程报告}}
+\fancyhead[R]{\textcolor{midGray}{\leftmark}}
+\fancyfoot[C]{\textcolor{midGray}{\thepage\ /\ \pageref{LastPage}}}
+
+% ==================== 标题 ====================
+\titleformat{\section}
+  {\Large\bfseries\color{xjtuRed}}
+  {\thesection}{0.8em}{}
+
+\titleformat{\subsection}
+  {\large\bfseries\color{darkText}}
+  {\thesubsection}{0.8em}{}
+
+% ==================== 信息 ====================
+\newcommand{\ReportTitle}{课程报告题目}
+\newcommand{\CourseName}{课程名称}
+\newcommand{\StudentName}{你的名字}
+\newcommand{\StudentID}{你的学号}
+\newcommand{\School}{你的学院}
+\newcommand{\Major}{你的专业}
+\newcommand{\ClassName}{你的班级}
+\newcommand{\Instructor}{你的指导教师}
+\newcommand{\DateInfo}{\today}
+
+% ==================== 封面 ====================
+\newcommand{\makecover}{
+\begin{titlepage}
+\thispagestyle{empty}
+
+\vspace*{0.5cm}
+
+\noindent
+    \begin{minipage}[c]{0.2\textwidth}
+        \includegraphics[width=0.72\textwidth]{figs/logo.png}
+    \end{minipage}
+\hfill
+\begin{minipage}[c]{0.75\textwidth}
+    {\fontsize{22pt}{26pt}\selectfont\bfseries\color{xjtuRed} 西安交通大学}\\
+    {\large\color{midGray} Xi'an Jiaotong University}
+\end{minipage}
+
+\vspace{2.2cm}
+
+\begin{center}
+    {\fontsize{26pt}{32pt}\selectfont\bfseries\color{darkText}\ReportTitle}
+
+    \vspace{1.2em}
+
+    \begin{tcolorbox}[
+        colback=lightGray,
+        colframe=lightGray,
+        boxrule=0pt,
+        arc=2mm,
+        width=0.78\textwidth
+    ]
+    \centering
+    {\Large\bfseries\color{xjtuRed} 课程报告}
+    \end{tcolorbox}
+\end{center}
+
+\vspace{2cm}
+
+\renewcommand{\arraystretch}{1.6}
+\begin{center}
+\begin{tabular}{p{3.2cm} p{8.5cm}}
+课程名称： & \CourseName \\
+学\hspace{1cm}院： & \School \\
+专\hspace{1cm}业： & \Major \\
+班\hspace{1cm}级： & \ClassName \\
+姓\hspace{1cm}名： & \StudentName \\
+学\hspace{1cm}号： & \StudentID \\
+指导教师： & \Instructor \\
+日\hspace{1cm}期： & \DateInfo \\
+\end{tabular}
+\end{center}
+
+\vfill
+
+\begin{center}
+\color{midGray}
+简约扁平风课程报告模板
+\end{center}
+
+\end{titlepage}
+}
+
+% ==================== 正文开始 ====================
+\begin{document}
+
+\makecover
+
+\pagenumbering{Roman}
+
+\begin{abstract}
+本文围绕课程主题展开分析与总结，介绍研究背景、核心问题、方法设计、过程分析与结果讨论，并在最后给出个人理解与课程收获。该模板注重结构清晰、页面简洁和信息层次分明，适合用于本科阶段课程报告、实验报告、课程论文与读书报告的写作。
+\end{abstract}
+
+\vspace{1em}
+\noindent\textbf{关键词：}课程报告；LaTeX；西安交通大学；模板设计
+
+\tableofcontents
+\newpage
+
+\pagenumbering{arabic}
+
+\section{引言}
+这里写课程报告的研究背景、写作目的和主要内容。一般来说，这一部分主要回答三个问题：为什么要写这份报告，这份报告围绕什么问题展开，以及本文准备如何组织后续内容。写这一部分时，建议使用完整段落，不需要过度拆分成很多小点。
+
+\section{理论基础}
+这一部分用于介绍完成本报告所依赖的概念、原理和基本知识。对于计算机类课程，可以在这里介绍相关定义、系统结构、算法思想或者必要的数学基础。如果正文后面涉及符号和公式，也可以先在这一节统一说明。
+
+\subsection{基本概念}
+这里填写与你的主题相关的核心概念。例如：
+\begin{equation}
+T(n)=O(n\log n)
+\end{equation}
+这类公式可以根据课程内容自行替换。
+
+\subsection{相关原理}
+这里进一步说明问题背后的理论依据。若需要写多行公式，可以使用：
+\begin{align}
+A &= B + C \\
+  &= D + E
+\end{align}
+
+\section{问题分析与方法设计}
+这一部分是报告正文的核心区域。你可以在这里说明问题是什么、为什么这样分析、采用了什么思路、最后如何形成解决方案。若是课程论文，可以写你的理解与推导过程；若是实验报告，可以写实验方案和技术路线；若是课程设计，可以写系统模块与实现框架。
+
+\subsection{整体思路}
+这里介绍整体结构。例如，可以先说明目标，再解释为什么采用当前方案，最后说明各部分之间的联系。
+
+\subsection{关键步骤}
+这里写关键分析过程、实现步骤或设计逻辑。建议重点写“为什么这样做”，而不仅仅是“做了什么”。
+
+\section{结果分析}
+如果你的报告有实验、程序运行结果、案例分析或者仿真现象，可以统一放在这一节。重点不只是罗列现象，而是解释结果和课程知识之间的联系。
+
+\subsection{结果展示}
+下面是一个表格示例：
+\begin{table}[H]
+    \centering
+    \caption{结果示例表}
+    \begin{tabular}{cccc}
+        \toprule
+        编号 & 参数设置 & 结果A & 结果B \\
+        \midrule
+        1 & 配置一 & 0.91 & 0.84 \\
+        2 & 配置二& 0.93 & 0.86 \\
+        3 & 配置三 & 0.95 & 0.89 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\subsection{分析讨论}
+这里写你对结果的解释。例如，为什么某个配置更优、结果是否符合理论预期、哪些地方还有局限性，以及是否还有可以改进的空间。真正体现理解深度的，通常就是这一部分。
+
+\section{总结与收获}
+这里可以写你通过本次课程报告获得了哪些认识，课程内容如何帮助你理解某个问题，以及这次写作对后续学习的意义。若老师更偏向正式风格，可以写得客观一些；若允许加入个人思考，也可以适度写自己的理解。
+
+\section*{参考文献}
+\addcontentsline{toc}{section}{参考文献}
+
+\begin{enumerate}[label={[}\arabic*{]}]
+    \item 作者. 文献标题[J]. 期刊名, 年份, 卷(期): 页码.
+    \item 作者. 书名[M]. 出版地: 出版社, 年份.
+    \item 作者. 文献标题[EB/OL]. 链接.
+\end{enumerate}
+
+\end{document}
