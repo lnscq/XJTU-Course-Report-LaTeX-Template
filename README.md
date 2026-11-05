@@ -86,13 +86,15 @@ latexmk -xelatex main.tex
 │   ├── 1.png
 │   └── 2.png
 └── figs/
+    ├── a4-2xhred.png
     └── logo.png
 ```
 
 其中：
 
 - `main.tex` 是模板主文件。
-- `figs/logo.png` 是封面使用的校徽图片资源。
+- `figs/a4-2xhred.png` 是封面使用的横版校标，包含校徽及中英文校名。
+- `figs/logo.png` 是保留的独立校徽图片资源。
 - `figs/` 建议继续用于存放报告中的图片素材。
 - `asserts/` 用于存放 README 中展示模板效果的预览图片。
 
@@ -101,10 +103,10 @@ latexmk -xelatex main.tex
 当前 `main.tex` 中封面图片路径写为：
 
 ```tex
-\includegraphics[width=0.72\textwidth]{figs/logo.png}
+\includegraphics[width=0.60\textwidth]{figs/a4-2xhred.png}
 ```
 
-因此请确保校徽图片位于 `figs/logo.png`。如果编译时提示找不到图片，可以检查文件名大小写、图片格式以及相对路径是否一致。
+因此请确保校标图片位于 `figs/a4-2xhred.png`。如果编译时提示找不到图片，可以检查文件名大小写、图片格式以及相对路径是否一致。
 
 如果你需要插入 SVG 图片，请确保本机已安装 Inkscape，并且命令行中可以访问 `inkscape`。
 
